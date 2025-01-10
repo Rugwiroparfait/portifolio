@@ -1,161 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rugwiro Parfait - Portfolio</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Animate.css for animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dominique Parfait Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lucide-static@0.24.0/dist/lucide.min.css">
+  <style>
+    .hidden-section {
+      display: none;
+    }
+    .visible-section {
+      display: block;
+    }
+  </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg glassmorphic-nav">
-        <div class="container">
-            <a class="navbar-brand" href="#">Dominique Parfait</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<body class="min-h-screen bg-gray-900 text-gray-100 flex">
+
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="fixed lg:static lg:flex flex-col w-64 h-screen bg-gray-800 border-r border-gray-700 p-6 z-50 transition-all duration-300 -translate-x-full lg:translate-x-0">
+    <!-- Profile Photo Space -->
+    <div class="mb-8 text-center">
+      <div class="w-32 h-32 mx-auto rounded-full bg-gray-700 mb-4 overflow-hidden">
+        <img src="profile_pic.png" alt="Profile" class="w-full h-full object-cover">
+      </div>
+      <h2 class="text-xl font-bold">Dominique Parfait</h2>
+      <p class="text-sm text-gray-600">Software Engineer</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex flex-col gap-2">
+      <button onclick="showSection('home')" class="nav-link flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-blue-100 text-gray-700">
+        <i class="lucide lucide-home"></i> Home
+      </button>
+      <button onclick="showSection('about')" class="nav-link flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-blue-100 text-gray-700">
+        <i class="lucide lucide-user"></i> About
+      </button>
+      <button onclick="showSection('projects')" class="nav-link flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-blue-100 text-gray-700">
+        <i class="lucide lucide-code"></i> Projects
+      </button>
+      <button onclick="showSection('experience')" class="nav-link flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-blue-100 text-gray-700">
+        <i class="lucide lucide-briefcase"></i> Experience
+      </button>
+      <button onclick="showSection('education')" class="nav-link flex items-center gap-2 px-4 py-2 rounded-lg transition-all hover:bg-blue-100 text-gray-700">
+        <i class="lucide lucide-graduation-cap"></i> Education
+      </button>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="vh-100 d-flex align-items-center glassmorphic-section">
-        <div class="container text-center">
-            <div class="hero-content animate__animated animate__fadeIn">
-                <img src="https://avatars.githubusercontent.com/u/111650617?v=4" class="rounded-circle mb-4 profile-image" alt="Profile Picture">
-                <h1 class="display-4">RUGWIRO Parfait</h1>
-                <p class="lead">Software Developer | Creative Thinker | Tech Enthusiast |  Entrepreneur</p>
-                <div class="social-icons mt-4">
-                    <a href="https://github.com/Rugwiroparfait" class="mx-2" data-feather="github"></a>
-                    <a href="https://www.linkedin.com/in/nsanzimana-rugwiro-dominique-parfait-a3ba9122a/" class="mx-2" data-feather="linkedin"></a>
-                    <a href="https://x.com/RugwiroParfait" class="mx-2" data-feather="twitter"></a>
-                </div>
+    <!-- Social Links -->
+    <div class="mt-auto pt-6 flex flex-col gap-3">
+      <a href="mailto:rugwiroparfait003@gmail.com" class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+        <i class="lucide lucide-mail"></i> Email
+      </a>
+      <a href="tel:+250788783057" class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+        <i class="lucide lucide-phone"></i> Phone
+      </a>
+      <a href="https://www.linkedin.com/in/rugwiroparfait" class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+        <i class="lucide lucide-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/Rugwiroparfait" class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
+        <i class="lucide lucide-github"></i> GitHub
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile Menu Button -->
+  <button id="menuButton" onclick="toggleSidebar()" class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow">
+    <i id="menuIcon" class="lucide lucide-menu"></i>
+  </button>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-8 lg:p-12">
+    <div id="home" class="visible-section">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          Welcome to my Portfolio
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          I'm a dedicated Software Engineer specializing in web and mobile application development, with expertise in Django, React, Node.js, and Flutter.
+        </p>
+        <button onclick="showSection('projects')" class="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          View My Work <i class="lucide lucide-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="about" class="hidden-section">
+      <!-- About Me Section -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <div class="bg-gray-800 rounded-xl shadow-sm p-8 mb-8">
+          <p class="text-gray-300 mb-6">
+            Dedicated Software Engineer with a strong background in web and mobile application development. Proficient in multiple programming languages and frameworks, with a passion for creating impactful software solutions.
+          </p>
+          <h3 class="text-xl font-bold mb-4">Technical Skills</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-bold mb-2">Programming Languages</h4>
+              <p>Python, JavaScript</p>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 glassmorphic-section">
-        <div class="container">
-            <h2 class="text-center mb-5 animate__animated animate__fadeIn">About Me</h2>
-            <div class="row">
-                <div class="col-md-6 glassmorphic-card p-4">
-                    <h3>Who I Am</h3>
-                    <p>I'm a dedicated and detail-oriented Python and JavaScript developer with expertise in building scalable web applications using frameworks like Django , Node and Flask. My background in web development includes creating user-friendly solutions, optimizing backend performance, and integrating third-party APIs to enhance functionality.</p>
-                </div>
-                <div class="col-md-6 glassmorphic-card p-4">
-                    <h3>My Skills</h3>
-                    <div class="skill-badges">
-                        <span class="badge">Python</span>
-                        <span class="badge">JavaScript</span>
-                        <span class="badge">Django</span>
-                        <span class="badge">Flask</span>
-                        <span class="badge">Node</span>
-                        <span class="badge">Redis</span>
-                        <span class="badge">MongoDB</span>
-                        <span class="badge">Linux</span>
-                        <span class="badge">Networking</span>
-                        <span class="badge">C programming</span>
-                        <span class="badge">PostgreSQL</span>
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                    </div>
-                </div>
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-bold mb-2">Frameworks & Libraries</h4>
+              <p>Django, Flask, React, Node.js, Express.js, Flutter</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 glassmorphic-section">
-        <div class="container">
-            <h2 class="text-center mb-5 animate__animated animate__fadeIn">My Projects</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="glassmorphic-card project-card">
-                        <img src="https://seethetrainer.com/wp-content/uploads/2015/01/forms.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Nexalis</h5>
-                            <p class="card-text"><b>Nexalis</b> Nexalis enables users to create forms with customizable questions, collect responses, and view aggregated data on a personal dashboard.</p>
-                            <a href="https://github.com/Rugwiroparfait/Nexalis" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="glassmorphic-card project-card">
-                        <img src="https://images.thenightly.com.au/publication/C-15556617/9099afe0dc9ce50dddacf1e799b3533c3b1158ef-16x9-x0y417w4000h2250.jpg?imwidth=1656" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Afri-explore-web-app</h5>
-                            <p class="card-text">AfriExplore is a web application built with Flask for sharing and exploring adventures in Africa.
-
-                                .</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more project cards here -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-bold mb-2">Databases</h4>
+              <p>MongoDB, Redis, SQL</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 glassmorphic-section">
-        <div class="container">
-            <h2 class="text-center mb-5 animate__animated animate__fadeIn">Contact Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-6 glassmorphic-card p-4">
-                    <form id="contactForm" action="https://formsubmit.co/rugwiroparfait003@gmail.com" method="POST">
-                        <div class="mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
-                    
-                </div>
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <h4 class="font-bold mb-2">Tools & Platforms</h4>
+              <p>Docker, Git, TryHackMe</p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-3 glassmorphic-section text-center">
-        <p>&copy; 2024 NSANZIMANA RUGWIRO Dominique Parfait. All Rights Reserved.</p>
-    </footer>
+    <div id="projects" class="hidden-section">
+      <!-- Projects Section -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Konati App -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">Konati App</h3>
+              <p class="mb-4">A mobile app for locating people during critical times with safety features.</p>
+              <div class="text-sm opacity-75">Flutter, Django</div>
+            </div>
+          </div>
+          <!-- Konvata App -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-green-400 to-green-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">Konvata App</h3>
+              <p class="mb-4">Desktop app for converting files, enhancing productivity and document handling.</p>
+              <div class="text-sm opacity-75">Python, Tkinter</div>
+            </div>
+          </div>
+          <!-- GradeTrack -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-purple-400 to-purple-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">GradeTrack</h3>
+              <p class="mb-4">Web app for academic grade management and student notifications.</p>
+              <div class="text-sm opacity-75">Django, PostgreSQL</div>
+            </div>
+          </div>
+          <!-- Lost and Found -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">Lost and Found</h3>
+              <p class="mb-4">Platform for reporting and recovering lost items with a community-driven approach.</p>
+              <div class="text-sm opacity-75">React, Node.js</div>
+            </div>
+          </div>
+          <!-- MoMoPay Automation -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">MoMoPay Automation</h3>
+              <p class="mb-4">Automates MoMoPay USSD codes for sending money or paying multiple recipients at once.</p>
+              <div class="text-sm opacity-75">Python, USSD</div>
+            </div>
+          </div>
+          <!-- Chrome Note-Taking Extension -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">Chrome Note-Taking Extension</h3>
+              <p class="mb-4">Extension for taking notes directly on any website, improving productivity.</p>
+              <div class="text-sm opacity-75">JavaScript, Chrome API</div>
+            </div>
+          </div>
+          <!-- Video Note-Taking Website -->
+          <div class="group relative overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all">
+            <div class="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 opacity-75"></div>
+            <div class="relative p-6 text-white">
+              <h3 class="text-xl font-bold mb-2">Video Note-Taking Website</h3>
+              <p class="mb-4">Website that allows users to take notes alongside watching videos without switching tabs.</p>
+              <div class="text-sm opacity-75">React, Node.js</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <div id="experience" class="hidden-section">
+      <!-- Experience Section -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Professional Experience</h2>
+        <div class="bg-gray-800 rounded-xl shadow-sm p-8">
+          <div class="mb-6">
+            <h3 class="text-xl font-bold">Software Engineer Intern</h3>
+            <p class="text-gray-400">MasterCard Program</p>
+            <p class="text-gray-300 mt-2">Gained hands-on experience in developing secure financial solutions, working in cross-functional teams to deliver high-quality software products.</p>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-xl font-bold">Freelance Developer</h3>
+            <p class="text-gray-400">Various Clients</p>
+            <p class="text-gray-300 mt-2">Developed multiple web and mobile applications for clients, focusing on delivering scalable and user-friendly solutions tailored to client needs.</p>
+          </div>
+          <div class="mb-6">
+            <h3 class="text-xl font-bold">Technical Assistant</h3>
+            <p class="text-gray-400">University Projects</p>
+            <p class="text-gray-300 mt-2">Provided technical assistance in university-led projects, contributing to the development and deployment of academic tools and platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="education" class="hidden-section">
+      <!-- Education Section -->
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Education</h2>
+        <div class="bg-gray-800 rounded-xl shadow-sm p-8">
+          <div class="mb-4">
+            <h3 class="text-xl font-bold">MCE (Mathematics, Computer Science, Economics)</h3>
+            <p class="text-gray-400">High School</p>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-bold">Software Engineering Certificate</h3>
+            <p class="text-gray-400">MasterCard Program</p>
+          </div>
+          <div class="mb-4">
+            <h3 class="text-xl font-bold">Agribusiness and Agroeconomics</h3>
+            <p class="text-gray-400">University</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+
+    function showSection(sectionId) {
+      document.querySelectorAll('.visible-section, .hidden-section').forEach(section => {
+        section.classList.add('hidden-section');
+        section.classList.remove('visible-section');
+      });
+      document.getElementById(sectionId).classList.add('visible-section');
+      document.getElementById(sectionId).classList.remove('hidden-section');
+    }
+  </script>
 </body>
 </html>
